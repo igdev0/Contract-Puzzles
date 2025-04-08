@@ -12,7 +12,7 @@ describe('Game3', function () {
 
     // you can get that signer's address via .getAddress()
     // this variable is NOT used for Contract 3, just here as an example
-    const plauers = [ethers.provider.getSigner(0), ethers.provider.getSigner(1), ethers.provider.getSigner(2)];
+    const players = [ethers.provider.getSigner(0), ethers.provider.getSigner(1), ethers.provider.getSigner(2)];
 
     return { game, players };
   }
