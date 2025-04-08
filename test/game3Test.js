@@ -13,7 +13,6 @@ describe('Game3', function () {
     // you can get that signer's address via .getAddress()
     // this variable is NOT used for Contract 3, just here as an example
     const players = [ethers.provider.getSigner(0), ethers.provider.getSigner(1), ethers.provider.getSigner(2)];
-
     return { game, players };
   }
 
@@ -30,8 +29,12 @@ describe('Game3', function () {
     await game.connect(players[2]).buy({ value: `${value}` })
     // to call a contract as a signer you can use contract.connect
 
+    const player0addr =  await players[0].getAddress();
+    const player1addr =  await players[1].getAddress();
+    const player2addr =  await players[2].getAddress();
+
     // TODO: win expects three arguments
-    await game.win(players[0].getAddress(), players[1].getAddress(), players[2].getAddress());
+    await game.win(player0addr, player1addr, player2addr);
 
     // leave this assertion as-is
     assert(await game.isWon(), 'You did not win the game');
